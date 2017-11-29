@@ -1,0 +1,16 @@
+
+#服务注册中心配置
+
+server:
+  port: 1001
+
+eureka:
+  instance:
+    hostname: localhost
+  
+  #默认情况下，服务端也开启客户端，因此需禁止该客户端行为
+  client:
+    registerWithEureka: false   #关闭客户端注册行为
+    fetchRegistry: false        #关闭检索服务行为
+    serviceUrl:                 #服务端地址
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
